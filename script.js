@@ -26,4 +26,12 @@
             mode = 'dark'
         }
     })
+
+    button.addEventListener('click', function(){
+        button.classList.add ('spin'); 
+
+        setTimeout(function() {
+            button.classList.remove('spin'); 
+        }, 600); 
+    })
 })()

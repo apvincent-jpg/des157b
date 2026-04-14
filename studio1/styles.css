@@ -9,6 +9,10 @@
     filter: grayscale(100%); 
     }
 
+    body p {
+        font-family: Roboto Mono;
+    }
+
 .grayscaleSwitch {
     filter: grayscale(100%); 
 }
@@ -34,4 +38,6 @@ section {
 .showing {
     opacity: 1; 
 }
+
+
 

@@ -6,15 +6,46 @@
     right: 0; 
     bottom: 0;
     z-index: 1;
-    filter: grayscale(100%); 
+    /* filter: grayscale(100%);  */
     }
 
-    body p {
-        font-family: Roboto Mono;
-    }
+/* p {
+    font-family: Roboto Mono;
+    color: white; 
+    position: absolute;
+    opacity: 0; 
+} */
+
+p {
+    position: absolute;
+    color: white; 
+    z-index: 10;
+    opacity: 0;
+    font-family: Roboto Mono;
+    font-weight: 500;
+}
+
+.line1 p,
+.line2 p,
+.line3 p,
+.line4 p {
+    opacity: 0;
+    position: absolute;
+    color: white; 
+    z-index: 10;
+}
+
+.showing p {
+    opacity: 1;
+}
+
+.hidden p {
+    opacity: 0;
+}
 
 .grayscaleSwitch {
     filter: grayscale(100%); 
+    transition: filter 0.5s ease;
 }
 
 .fa-expand-alt {
@@ -22,13 +53,17 @@
     top: 10px; 
     right: 10px; 
     font-size: 30px; 
-    color: rgb(135, 56, 0); 
-    z-index: 2; 
+    color: #ef3b24; 
+    z-index: 10; 
+    cursor: pointer; 
 }
 
 section {
     position: absolute; 
-    z-index: 3;
+    z-index: 5;
+    width: 100%;
+    height: 100%; 
+    cursor: crosshair;
 }
 
 .hidden {
@@ -38,6 +73,20 @@ section {
 .showing {
     opacity: 1; 
 }
+
+img {
+    max-width: 600px; 
+    opacity: 0; 
+}
+
+section img {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+
 
 
 

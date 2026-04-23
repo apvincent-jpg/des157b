@@ -1,0 +1,10 @@
+[
+  { "month": "September", "miles": 3.1 },
+  { "month": "October", "miles": 4.5 },
+  { "month": "November", "miles": 7.1 },
+  { "month": "December", "miles": 3 },
+  { "month": "January", "miles": 5.8 },
+  { "month": "February", "miles": 6 },
+  { "month": "March", "miles": 2 },
+  { "month": "April", "miles": 8 }
+]

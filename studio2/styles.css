@@ -17,17 +17,7 @@ h2 {
 h3 {
     font-family: "roboto mono"; 
     font-weight: 350;
-    font-size: 14px; 
-    position: relative; 
-}
-
-.month {
-    text-align: center;
-    font-size: 14px;
-    bottom: 180px; 
-    left: 500px;
-    position: absolute; 
-    z-index: 5; 
+    font-size: 14px;  
 }
 
 html, body {
@@ -35,11 +25,6 @@ html, body {
   height: 750px;
   margin: 0; 
   overflow: hidden; 
-}
-
-body {
-    max-width: 1200px; 
-    max-height: 750px; 
 }
 
 section p {
@@ -50,28 +35,29 @@ section p {
 }
 
 .grid {
-    width: 100%; 
+    max-width: 1000px; 
     display: block; 
-    /* margin: auto;  */
-    /* padding-bottom: 500px;  */
-    /* z-index: 1;  */
+    top: 150px;
+    left: 50px; 
+    z-index: 1; 
     position: relative; 
 }
 
 .monthNames {
     display: flex; 
-    margin: auto; 
-    max-width: 1100px;
     position: absolute; 
-    top: 20px; 
-    left: 0;
-    width: 100%;
+    top: 610px; 
+    left: 110px; 
     display: flex;
     justify-content: space-between;
-    padding: 575px 110px; 
+    gap: 20px;
     box-sizing: border-box;
     z-index: 5;
 
+}
+
+.monthNames p {
+    width: 100px; 
 }
 
 .triangles img{
@@ -82,26 +68,30 @@ section p {
 
 .triangles {
     position: absolute;
-    bottom: 110px; 
+    top: 525px; 
     left: 100px;
     width: 100%;
     display: flex;
-    /* justify-content: space-between; */
-    gap: 30px;
+    gap: 38px;
 }
 
-
-
 .circles img {
-    max-width: 100px; 
+    max-width: 200px; 
     visibility: hidden; 
     z-index: 4; 
     position: relative; 
+    bottom: 300px; 
+    left: 600px; 
 }
+
+/* .showing {
+    display: block; 
+} */
 
 .chart {
     position: relative;
-    width: 1100px;
+    width: 100%; 
+    height: 600px; 
     margin: -110px auto 100px auto;
 }
 
@@ -109,6 +99,15 @@ section p {
     transform: rotate(-90deg);
     transform-origin: left top;
     position: absolute;
-    top: 440px;
-    left: 45px;
+    top: 390px;
+    left: 30px;
+}
+
+.month {
+    text-align: center;
+    position: relative; 
+    font-size: 14px;
+    top: 160px;
+    z-index: 6; 
+    
 }

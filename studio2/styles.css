@@ -24,7 +24,7 @@ html, body {
   width: 1100px;
   height: 750px;
   margin: 0; 
-  overflow: hidden; 
+  /* overflow: hidden;  */
 }
 
 section p {
@@ -50,7 +50,7 @@ section p {
     left: 110px; 
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 23px;
     box-sizing: border-box;
     z-index: 5;
 
@@ -60,28 +60,57 @@ section p {
     width: 100px; 
 }
 
-.triangles img{
-    max-width: 80px; 
-    z-index: 3;
-    position: relative; 
-}
-
 .triangles {
     position: absolute;
-    top: 525px; 
+    top: 417px;
     left: 100px;
-    width: 100%;
+
     display: flex;
     gap: 38px;
+
+    align-items: flex-end;
+}
+
+.tri {
+    height: 200px;          
+    display: flex;
+    align-items: flex-end;    
+    overflow: visible;
+}
+
+.triangles img {
+    height: 114px;
+    transform-origin: bottom center; 
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.tri img {
+    height: 114px; 
+    transform-origin: bottom center; 
+    transition: transform 0.3s ease; 
+    position: relative;
+}
+
+.tri img:hover {
+    cursor: pointer;
 }
 
 .circles img {
-    max-width: 200px; 
-    visibility: hidden; 
-    z-index: 4; 
-    position: relative; 
-    bottom: 300px; 
-    left: 600px; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 270px;   /* adjust size if needed */
+    visibility: hidden;
+}
+
+.circles {
+    position: absolute;
+    top: 40px;      /* adjust as needed */
+    right: 40px;    /* top-right corner */
+    width: 300px;
+    z-index: 10;
 }
 
 /* .showing {
@@ -111,3 +140,22 @@ section p {
     z-index: 6; 
     
 }
+
+
+/* // from mahima  */
+
+.point{
+  width: 4em;
+  height: 4em;
+  background-color: grey;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  left: calc(((var(--pos)/50)*100) * 1%);  
+}
+
+/* animation */
+
+/* .triangles img:hover {
+    transform: scaleY(var(--scaleY));
+} */

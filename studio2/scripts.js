@@ -24,14 +24,14 @@
 
             const scaleValue = 1 + (miles * scaleFactor);
 
-            // your existing hover grow (UNCHANGED)
+         
             triangle.addEventListener('mouseenter', function (scale) {
                 return function () {
-                    this.style.transform = 'scale(' + scale + ')';
+                    this.style.transform = `scale(${scale})`;
                 };
             }(scaleValue));
 
-            // NEW: click shows matching circle
+          
             triangle.addEventListener('click', function () {
                 hideAllCircles();
                 circle.style.visibility = 'visible';

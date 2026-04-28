@@ -101,14 +101,14 @@ section p {
     position: absolute;
     top: 0;
     left: 0;
-    width: 270px;   /* adjust size if needed */
+    width: 270px;  
     visibility: hidden;
 }
 
 .circles {
     position: absolute;
-    top: 40px;      /* adjust as needed */
-    right: 40px;    /* top-right corner */
+    top: 40px;     
+    right: 40px;   
     width: 300px;
     z-index: 10;
 }
@@ -154,8 +154,3 @@ section p {
   left: calc(((var(--pos)/50)*100) * 1%);  
 }
 
-/* animation */
-
-/* .triangles img:hover {
-    transform: scaleY(var(--scaleY));
-} */

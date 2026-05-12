@@ -9,12 +9,35 @@ img {
     height: auto;
 }
 
+h3, 
+body.switch h1, 
+section a:hover {
+    color: #a0c7f8;
+}
+
+body, 
+body.switch h3 { 
+    background-color: #a0c7f8; 
+}
+
+h3,
+body.switch,
+section a:hover {
+    background-color: #8c3827;
+}
+
+body.switch h3,
+h1 {
+    color: #8c3827;
+}
+
+
 
 /* Page styling */
 body {
     /* background-color: #4d261f; */
     /* background-color: #e7d1ba; */
-    background-color: #8c3827;
+    /* background-color: #a0c7f8;  */
     /* background-color: #ddebf1; */
     /* color: rgb(67, 65, 33); */
     transition: all 2s;
@@ -25,12 +48,12 @@ body {
 }
 
 h3 {
-    color: #8c3827;
+    /* color: #a0c7f8; */
     font-size: 1.5em;
     margin-top: -2px; 
     margin-bottom: -2.5px;
     font-weight: 500;
-    background-color: #a0c7f8; 
+    /* background-color: #8c3827; */
     border-radius: 5px;
     max-width: 170px;
     padding: 5px; 
@@ -38,13 +61,13 @@ h3 {
 }
 
 body.switch h3 {
-    background-color: #8c3827;
-    color: #a0c7f8; 
+    /* background-color: #a0c7f8; */
+    /* color: #8c3827; */
 }
 
 h1 {
     /* color: rgb(204, 190, 190);  */
-    color: #a0c7f8; 
+    /* color: #8c3827; */
     font-size: 70px;
     font-weight: 500;
     text-align: left;
@@ -52,13 +75,13 @@ h1 {
 }
 
 body.switch h1 {
-    color: #8c3827;
+    /* color: #a0c7f8; */
 }
 
 h2 {
     margin-top: 0; 
     font-weight: 300;
-    color: rgb(204, 190, 190);
+    color: #4f4236;
 }
 
 #container {
@@ -93,7 +116,7 @@ header {
 
 #banner.switch {
     background: none;
-    color: rgb(235, 235, 235);
+    color: #4f4236;
     transition: all 2s;
 }
 
@@ -131,31 +154,31 @@ section a {
     line-height: 0.5em;
     display: inline-block;
     padding: .5em;
-    color: rgb(226, 215, 194);
+    color: #4f4236;
 }
 
 section a:hover {
-    background-color: #a0c7f8; 
-    color: #8c3827;
+    /* background-color:#8c3827; */
+    /* color: #a0c7f8; */
     border-radius: 5px;
 }
 
 section.switch a {
-    color: #4f4236; 
+    color: rgb(235, 235, 235);
 }
 
 body.switch h2 {
-    color: #4f4236; 
+    color: rgb(204, 190, 190);
 }
 
 section.switch a:hover {
-    background-color: #8c3827;; 
+    background-color: #a0c7f8;
     color: rgb(235, 235, 235);
 }
 
 body.switch {
     /* background-color: #6bb5de;  */
-    background-color: #a0c7f8;
+    /* background-color: #8c3827; */
 }
 
 button {

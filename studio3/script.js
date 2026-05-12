@@ -4,10 +4,10 @@ let imgs = [];
 
 function preload() {
   // Load the image files.
-  imgs[0] = loadImage('/studio3/images/lib_beetle.png');
-  imgs[1] = loadImage('/studio3/images/lib_person.png');
-  imgs[2] = loadImage('/studio3/images/lib_star.png');
-  imgs[3] = loadImage('/studio3/images/lib_mountain.png');
+  imgs[0] = loadImage('images/lib_beetle.png');
+  imgs[1] = loadImage('images/lib_person.png');
+  imgs[2] = loadImage('images/lib_star.png');
+  imgs[3] = loadImage('images/lib_mountain.png');
 
 }
 

@@ -5,6 +5,12 @@ h2 {
     color: rgb(87, 66, 50)
 }
 
+h1 {
+    padding-bottom: 10px;
+    font-size: 50px;
+}
+
+
 h2 {
     padding-bottom: -10px; 
     font-size: 20px;

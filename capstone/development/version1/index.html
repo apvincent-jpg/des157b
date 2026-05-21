@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Version 1</title>
+
+    <!-- Normalize CSS for browser compatability -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- SIGN IN -->
+    <section id="signIn" class="hidden">
+        <h1 >SIGN IN</h1>
+        <label for="name"></label>
+        <input type="text" id="name" required>
+    </section>
+
+    <!-- PHRASES -->
+    <section id="phrases" class="hidden">
+    
+    </section>
+
+    <!-- LOADING -->
+    <section id="loading" class="hidden">
+        <h1>WELCOME TO OPTIMINDED</h1>
+        <!-- loading bar -->
+    </section>
+
+      <!-- SIDE BAR -->
+    <section id="sideBar" class="showing">
+        <div class="triangles">
+        <img src="images/capstone_triangle.png">
+        <img src="images/capstone_triangle.png">
+        <img src="images/capstone_triangle.png">
+        <img src="images/capstone_triangle.png">
+        <img src="images/capstone_triangle.png">
+        </div>
+    </section>
+
+    <!-- MAIN PAGE -->
+    <section id="mainPage" class="hidden">
+        <h1>Good Morning Ava!</h1>
+        <p>here are today's tasks</p>
+        <ul>
+            <li>LOTF Chapter 1</li>
+            <li>Geometry Chapter 1</li>
+            <li>PE</li>
+        </ul>
+        <button id="beginButton">begin</button>
+    </section>
+
+
+    <section id="task" class="showing">
+        <article>
+        <h1>Lord of the Flies</h1>
+        <h2>Chapter 1</h2>
+        <p>In the midst of a wartime evacuation, a British aeroplane crashes on an isolated island. The only survivors are boys in their middle childhood or preadolescence. A fair-haired boy named Ralph and a fat boy nicknamed Piggy find a conch shell, which Ralph uses as a horn to gather the survivors. Ralph immediately commands authority over the other surviving boys using the conch, and is elected their "chief". He establishes three goals for the boys: to have fun, to survive, and to constantly maintain a smoke signal that could alert passing ships. Ralph, a red-haired boy named Jack, and a quiet boy named Simon use Piggy's glasses to create a signal fire.</p>
+
+        <p>The semblance of order among them deteriorates as the boys grow lazy and ignore Ralph's efforts to improve life on the island. They become paranoid about an imaginary monster called "the beast". Ralph fails to convince the boys that no beast exists, while Jack gains popularity by declaring that he will personally hunt and kill the monster. At one point, Jack takes the boys to hunt a wild pig, including the boys who were meant to watch the signal fire. The smoke signal goes out, failing to attract a ship that was passing by the island. Ralph angrily confronts Jack and considers relinquishing his role as leader, but is persuaded not to do so by Piggy.</p>
+
+        <p>One night, an air battle occurs near the island and the body of a fighter pilot drifts. One night, an air battle occurs near the island and the body of a fighter pilot drifts down in a parachute. Twin boys Sam and Eric mistake the corpse for the beast. When Ralph and Jack investigate with another boy, Roger, they</p>
+        </article>
+    </section>
+
+    <section id="outdoorsBreak" class="show">
+        <!-- <h1>NATURE BREAK</h1> -->
+        <img src="images/capstone_outdoors.png">
+    </section>
+
+    <section id="outro" class="hidden">
+        <!-- video -->
+    </section>
+    
+</body>
+</html>

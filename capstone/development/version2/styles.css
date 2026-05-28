@@ -204,8 +204,6 @@ input {
 
 /* TASK PAGE */
 
-/* TASK PAGE */
-
 #task {
     position: absolute;
     top: 0;
@@ -242,10 +240,186 @@ input {
     line-height: 1.7;
 }
 
+/* COMPREHENSION CHECK */
+
+#comprehension {
+    margin-top: 40px;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 15px;
+}
+
+#comprehension h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.scale {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.scale label {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#submitComprehension {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: yellow;
+    cursor: pointer;
+}
+
 /* OUTDOORS BREAK */
 
 #outdoorsBreak {
     position: absolute;
     z-index: 3;
     top: 30px;
+}
+
+/* NATURE BREAK */
+
+#outdoorsBreak {
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.5s;
+}
+
+#outdoorsBreak.showing {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#outdoorsBreak img {
+    width: 1000px;
+    border-radius: 20px;
+}
+
+/* TIMER BAR */
+
+#timerContainer {
+    width: 500px;
+    height: 20px;
+
+    background-color: rgba(255, 255, 255, 0.3);
+
+    border-radius: 20px;
+
+    margin-top: 30px;
+
+    overflow: hidden;
+}
+
+#timerBar {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(255, 255, 75);
+
+    animation: countdown 10s linear forwards;
+}
+
+@keyframes countdown {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
+
+/* FOCUS WARNING */
+
+#focusWarning {
+    position: fixed;
+    inset: 0;
+    /* display: flex; */
+
+    background-color: rgba(120, 0, 0, 0.75);
+
+    z-index: 2000;
+
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+
+    animation: warningFlash 0.5s infinite alternate;
+}
+
+#focusWarning.showing {
+    display: flex;
+}
+
+#focusWarning h1 {
+    color: red;
+    font-size: 70px;
+    text-align: center;
+}
+
+@keyframes warningFlash {
+    from {
+        opacity: 0.7;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* CALIBRATION */
+
+#calibration {
+    position: fixed;
+    inset: 0;
+
+    background: black;
+
+    z-index: 3000;
+}
+
+#calibration h1 {
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#calibration p {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.calDot {
+    position: absolute;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: red;
 }

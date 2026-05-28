@@ -19,6 +19,10 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- libraries  -->
+    <!-- web gazer -->
+    <script src="https://cdn.jsdelivr.net/npm/webgazer@2.0.1/dist/webgazer.min.js"></script>
+
     <script src="script.js" defer></script>
 </head>
 
@@ -68,12 +72,34 @@
         <button id="beginButton">begin</button>
     </section>
 
+    <!-- CALIBRATION  -->
+    <section id="calibration" class="hidden">
+
+        <h1>CALIBRATING</h1>
+        <p>click each dot</p>
+        <p>webgazer will help make sure you stay focused</p>
+
+        <button class="calDot" style="top:10%; left:10%;"></button>
+        <button class="calDot" style="top:10%; left:50%;"></button>
+        <button class="calDot" style="top:10%; left:80%;"></button>
+
+        <button class="calDot" style="top:50%; left:10%;"></button>
+        <button class="calDot" style="top:50%; left:50%;"></button>
+        <button class="calDot" style="top:50%; left:80%;"></button>
+
+        <button class="calDot" style="top:80%; left:10%;"></button>
+        <button class="calDot" style="top:80%; left:50%;"></button>
+        <button class="calDot" style="top:80%; left:80%;"></button>
+
+    </section>
+
     <!-- TASK PAGE -->
     <section id="task" class="hidden">
         <article>
             <h1>Lord of the Flies</h1>
             <h2>Chapter 1</h2>
-            <p>In the midst of a wartime evacuation, a British aeroplane crashes on an isolated island. The only
+            <p> Im going to change the text this is stand in: In the midst of a wartime evacuation, a British aeroplane
+                crashes on an isolated island. The only
                 survivors are boys in their middle childhood or preadolescence. A fair-haired boy named Ralph and a fat
                 boy nicknamed Piggy find a conch shell, which Ralph uses as a horn to gather the survivors. Ralph
                 immediately commands authority over the other surviving boys using the conch, and is elected their
@@ -93,16 +119,59 @@
                 battle occurs near the island and the body of a fighter pilot drifts down in a parachute. Twin boys Sam
                 and Eric mistake the corpse for the beast. When Ralph and Jack investigate with another boy, Roger, they
             </p>
+            <div id="comprehension" class="hidden">
+
+                <h2>Quick Check</h2>
+
+                <p>How well did you understand the reading?</p>
+                <div class="scale">
+                    <label>1 <input type="radio" name="understanding" value="1"></label>
+                    <label>2 <input type="radio" name="understanding" value="2"></label>
+                    <label>3 <input type="radio" name="understanding" value="3"></label>
+                    <label>4 <input type="radio" name="understanding" value="4"></label>
+                    <label>5 <input type="radio" name="understanding" value="5"></label>
+                    <label>6 <input type="radio" name="understanding" value="6"></label>
+                    <label>7 <input type="radio" name="understanding" value="7"></label>
+                </div>
+
+                <p>Did you feel distracted while reading?</p>
+                <div class="scale">
+                    <label>1 <input type="radio" name="distraction" value="1"></label>
+                    <label>2 <input type="radio" name="distraction" value="2"></label>
+                    <label>3 <input type="radio" name="distraction" value="3"></label>
+                    <label>4 <input type="radio" name="distraction" value="4"></label>
+                    <label>5 <input type="radio" name="distraction" value="5"></label>
+                    <label>6 <input type="radio" name="distraction" value="6"></label>
+                    <label>7 <input type="radio" name="distraction" value="7"></label>
+                </div>
+
+            </div>
+
+        </article>
         </article>
     </section>
 
+
+    <!-- NATURE BREAK -->
+
     <section id="outdoorsBreak" class="hidden">
-        <!-- <h1>NATURE BREAK</h1> -->
+
         <img src="images/capstone_outdoors.png">
+
+        <div id="timerContainer">
+            <div id="timerBar"></div>
+        </div>
+
     </section>
 
     <section id="outro" class="hidden">
         <!-- video -->
+    </section>
+
+    <!-- FOCUS WARNING web gazer  -->
+
+    <section id="focusWarning" class="hidden">
+        <h1>YOU ARE NOT LOOKING AT THE SCREEN</h1>
     </section>
 
 </body>

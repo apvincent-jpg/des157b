@@ -2,7 +2,9 @@
 
     "use strict";
     console.log('reading js');
-    console.log(webgazer);
+    // console.log(webgazer);
+
+    
 
     const signIn = document.querySelector('#signIn');
     const loading = document.querySelector('#loading');
@@ -24,14 +26,14 @@
 
     //for webgazer
 
-    const focusWarning = document.querySelector('#focusWarning');
-    let lookingAway = false;
-    let awayTimer;
+    // const focusWarning = document.querySelector('#focusWarning');
+    // let lookingAway = false;
+    // let awayTimer;
 
-    const calibration = document.querySelector('#calibration');
-    const calDots = document.querySelectorAll('.calDot');
+    // const calibration = document.querySelector('#calibration');
+    // const calDots = document.querySelectorAll('.calDot');
 
-    let calibrationClicks = 0;
+    // let calibrationClicks = 0;
 
 
     // ENTER BUTTON
@@ -93,128 +95,155 @@
 
         // initWebGazer();
 
-        calibration.classList.remove('hidden');
-        calibration.classList.add('showing');
+        // calibration.classList.remove('hidden');
+        // calibration.classList.add('showing');
 
-        setTimeout(function () {
-            startNatureBreak();
-        }, 20000);
+        webgazer.params.facemeshDepsPath = 'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh';
+
+webgazer.setGazeListener(function(data, elapsedTime) {
+    if (data == null) {
+        return;
+    }
+   
+    // Gaze coordinates relative to the viewport
+    var xprediction = data.x;
+    var yprediction = data.y;
+   
+    console.log("Gaze at: " + xprediction + ", " + yprediction);
+}).begin();
+
+// Optional: Hide the video feed and prediction dot
+webgazer.showVideoPreview(true)
+        .showPredictionPoints(true);
+        
+
+
+        // setTimeout(function () {
+        //     startNatureBreak();
+        // }, 20000);
 
     });
 
     // NATURE BREAK
-    function startNatureBreak() {
+    // function startNatureBreak() {
 
-        timerBar.style.animation = 'none';
-        timerBar.offsetHeight;
-        timerBar.style.animation = 'countdown 10s linear forwards';
+    //     timerBar.style.animation = 'none';
+    //     timerBar.offsetHeight;
+    //     timerBar.style.animation = 'countdown 10s linear forwards';
 
-        outdoorsBreak.classList.remove('hidden');
+    //     outdoorsBreak.classList.remove('hidden');
 
-        setTimeout(function () {
-            outdoorsBreak.classList.add('showing');
-        }, 10);
+    //     setTimeout(function () {
+    //         outdoorsBreak.classList.add('showing');
+    //     }, 10);
 
-        setTimeout(function () {
+    //     setTimeout(function () {
 
-            outdoorsBreak.classList.remove('showing');
+    //         outdoorsBreak.classList.remove('showing');
 
-            setTimeout(function () {
-                outdoorsBreak.classList.add('hidden');
-            }, 500);
+    //         setTimeout(function () {
+    //             outdoorsBreak.classList.add('hidden');
+    //         }, 500);
 
-        }, 10000);
-    }
+    //     }, 10000);
+    // }
 
     // CALIBRATION - help from video tutorial + AI + WebGazer site; still confused
 
-    calDots.forEach(function (dot) {
+    // calDots.forEach(function (dot) {
 
-        dot.addEventListener('click', function (e) {
+    //     dot.addEventListener('click', function (e) {
 
-            const rect = dot.getBoundingClientRect();
+    //         console.log('dot clicked'); 
 
-            webgazer.recordScreenPosition(
-                rect.left + rect.width / 2,
-                rect.top + rect.height / 2,
-                'click'
-            );
+    //         const rect = dot.getBoundingClientRect();
 
-            dot.style.background = 'green';
+    //         webgazer.recordScreenPosition(
+    //             rect.left + rect.width / 2,
+    //             rect.top + rect.height / 2,
+    //             'click'
+    //         );
 
-            calibrationClicks++;
+    //         dot.style.background = 'green';
 
-            if (calibrationClicks >= calDots.length) {
+    //         calibrationClicks++;
 
-                calibration.classList.remove('showing');
-                calibration.classList.add('hidden');
+    //         if (calibrationClicks >= calDots.length) {
 
-                task.classList.remove('hidden');
-                task.classList.add('showing');
+    //             calibration.classList.remove('showing');
+    //             calibration.classList.add('hidden');
 
-                startWebGazerBase();
-            }
-        });
+    //             task.classList.remove('hidden');
+    //             task.classList.add('showing');
 
-    });
+    //             startWebGazerBase();
+    //         }
+    //     });
+
+    // });
 
     // WEB GAZER BASE
-    function startWebGazerBase() {
+    // function startWebGazerBase() {
 
-        console.log("starting webgaxer");
+    //     console.log("starting webgaxer");
 
-        webgazer.showVideo(true);
-        webgazer.showFaceOverlay(true);
-        webgazer.showFaceFeedbackBox(true);
+    //     webgazer.showVideo(true);
+    //     webgazer.showFaceOverlay(true);
+    //     webgazer.showFaceFeedbackBox(true);
 
-        webgazer.setRegression('ridge');
+    //     webgazer.setRegression('ridge');
 
-        webgazer.begin();
-    }
+    //     webgazer.begin();
+    // }
 
-    // START WEB GAZER FUNCTION
-    function startWebGazer() {
+    // // START WEB GAZER FUNCTION
+    // function startWebGazer() {
 
-        webgazer.setRegression('ridge');
+    //     webgazer.setRegression('ridge');
 
-        webgazer.setGazeListener(function (data) {
+    //     webgazer.setGazeListener(function (data) {
 
-            if (!data) return;
+    //         if (!data) return;
 
-            console.log("WORKING:", data.x, data.y);
+    //         console.log("WORKING:", data.x, data.y);
 
-            const x = data.x;
-            const y = data.y;
+    //         const x = data.x;
+    //         const y = data.y;
 
-            const article = document.querySelector('#task article');
-            const rect = article.getBoundingClientRect();
+    //         const article = document.querySelector('#task article');
+    //         const rect = article.getBoundingClientRect();
 
-            const padding = 50;
+    //         const padding = 50;
 
-            const insideArticle =
-                x > rect.left - padding &&
-                x < rect.right + padding &&
-                y > rect.top - padding &&
-                y < rect.bottom + padding;
+    //         const insideArticle =
+    //             x > rect.left - padding &&
+    //             x < rect.right + padding &&
+    //             y > rect.top - padding &&
+    //             y < rect.bottom + padding;
 
-            if (!insideArticle) {
-                focusWarning.classList.remove('hidden');
-                focusWarning.classList.add('showing');
-            } else {
-                focusWarning.classList.remove('showing');
-                focusWarning.classList.add('hidden');
-            }
+    //         if (!insideArticle) {
+    //             focusWarning.classList.remove('hidden');
+    //             focusWarning.classList.add('showing');
+    //             // console.log('looking at article'); 
+    //         } else {
+    //             focusWarning.classList.remove('showing');
+    //             focusWarning.classList.add('hidden');
+    //             // console.log('not looking at article'); 
+    //         }
 
-        });
+    //     });
 
-        webgazer.begin();
+    //     webgazer.begin();
 
-        webgazer.showVideo(true);
-        webgazer.showFaceOverlay(true);
-        webgazer.showFaceFeedbackBox(true);
+    //     webgazer.showVideo(true);
+    //     webgazer.showFaceOverlay(true);
+    //     webgazer.showFaceFeedbackBox(true);
 
-        console.log("WEBGAZER STARTED");
-    }
+    //     console.log("WEBGAZER STARTED");
+    // }
+
+    // WEB GAZER NEW
+
 
     // COMPREHENTION
     const article = document.querySelector('#task article');

@@ -1,0 +1,510 @@
+/* ALL PAGES */
+
+body {
+    background-image: url('images/capstone_background.png');
+    background-repeat: no-repeat;
+    height: 800px;
+    /* overflow: hidden; */
+    background-size: cover;
+}
+
+html {
+    font-family: "DM sans";
+    display: block;
+}
+
+/* h1 {
+    font-family: "DM sans"; 
+    font-weight: 200; 
+} */
+
+.hidden {
+    display: none;
+}
+
+.showing {
+    display: block;
+}
+
+/* SIGN IN + LOADING PAGES */
+
+#signIn,
+#loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#signIn h1,
+#loading h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    font-size: 30px;
+    font-family: "DM sans";
+    font-weight: 100px;
+    padding: 10px;
+    border: 2px solid #e7e133;
+    background-color: rgb(218, 218, 218);
+    border-radius: 20px;
+    outline: none;
+}
+
+/* ENTER BUTTON */
+
+#enterButton {
+    display: block;
+    margin: 20px auto;
+    width: 180px;
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+
+    background-color: rgb(255, 255, 75);
+    font-size: 30px;
+    font-family: "DM Sans";
+}
+
+#enterButton:hover {
+    background-color: rgba(255, 255, 75, 0.7);
+    cursor: pointer;
+}
+
+/* FADE ANIMATION */
+
+.fadeOut {
+    animation: fadeOut 1s forwards;
+}
+
+.fadeIn {
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* MAIN PAGE */
+
+#mainPage h1 {
+    color: rgb(255, 255, 69);
+    font-size: 50px;
+    font-weight: 100px;
+    padding-left: 30px;
+}
+
+#mainPage p {
+    font-size: 35px;
+    padding-left: 45px;
+}
+
+/* MAIN PAGE ANIMATION */
+
+#mainPage {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 650px;
+    height: 100vh;
+
+    background-color: rgb(155, 198, 226);
+}
+
+#mainPage h1,
+#mainPage p,
+#mainPage ul {
+    opacity: 0;
+}
+
+.animateText {
+    animation: fadeText 1s forwards;
+}
+
+@keyframes fadeText {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* BEGIN BUTTON */
+
+#beginButton {
+    width: 270px;
+    height: 100px;
+    background-color: rgb(255, 255, 75);
+    border: none;
+    border-radius: 20px;
+    font-size: 70px;
+    position: absolute;
+    ;
+    top: 550px;
+    left: 200px;
+}
+
+#beginButton:hover {
+    background-color: rgb(255, 255, 75, 0.7);
+}
+
+#mainPage ul li {
+    list-style-type: none;
+    font-size: 30px;
+    padding-left: 30px;
+
+}
+
+/* SIDE BAR */
+
+#sideBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 100vh;
+
+    background-color: rgb(137, 185, 216);
+}
+
+#sideBar .triangles {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: -20px;
+}
+
+/* TASK PAGE */
+
+#task {
+    position: fixed;
+    top: 0;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 800px;
+    height: 100vh;
+
+    background-color: rgb(155, 198, 226);
+    padding: 40px;
+    box-sizing: border-box;
+    z-index: 90000;
+}
+
+#task article {
+    background-color: white;
+
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+    border-radius: 20px;
+}
+
+#task h1 {
+    font-size: 45px;
+    font-weight: 600;
+}
+
+#task h2 {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 0px;
+    padding-top: 10px;
+}
+
+#task h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#task p {
+    font-size: 20px;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+#task .blurb {
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* HIGHLIGHT TASK  */
+
+.highlight {
+    background-color: yellow;
+    cursor: pointer;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+#endButton {
+    display: block;
+    margin: 20px auto;
+    width: 180px;
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+
+    background-color: rgb(255, 255, 75);
+    font-size: 30px;
+    font-family: "DM Sans";
+}
+
+#endButton:hover {
+    background-color: rgba(255, 255, 75, 0.7);
+    cursor: pointer;
+}
+
+/* COMPREHENSION CHECK */
+
+#comprehension {
+    margin-top: 40px;
+    padding: 60px;
+    background: #f5f5f5;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: auto;
+}
+
+#questionText {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.likertScale {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.scaleBtn {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    background: rgb(255, 255, 75);
+}
+
+.scaleBtn:hover {
+    opacity: 0.8;
+}
+
+.scaleLabels {
+    display: flex;
+    justify-content: space-between;
+    width: 390px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+#comprehension h2 {
+    text-align: center;
+}
+/* OUTDOORS BREAK */
+
+#outdoorsBreak {
+    position: absolute;
+    z-index: 3;
+    top: 30px;
+}
+
+/* NATURE BREAK */
+
+#outdoorsBreak {
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 999;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.5s;
+}
+
+#outdoorsBreak.showing {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#outdoorsBreak img {
+    width: 1000px;
+    border-radius: 20px;
+}
+
+/* TIMER BAR */
+
+#timerContainer {
+    width: 500px;
+    height: 20px;
+
+    background-color: rgba(255, 255, 255, 0.3);
+
+    border-radius: 20px;
+
+    margin-top: 30px;
+
+    overflow: hidden;
+}
+
+#timerBar {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgb(255, 255, 75);
+
+    animation: countdown 10s linear forwards;
+}
+
+@keyframes countdown {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
+
+/* FOCUS WARNING */
+
+#focusWarning {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 280px;
+    padding: 15px 20px;
+
+    background-color: rgba(234, 35, 13, 0.9);
+    color: white;
+
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    font-size: 16px;
+    font-family: "DM Sans";
+
+    display: none;
+    z-index: 90001;
+    animation: popIn 0.2s ease-out;
+}
+
+#focusWarning.showing {
+    display: block;
+}
+
+@keyframes popIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* CALIBRATION */
+
+#calibration {
+    position: fixed;
+    inset: 0;
+
+    background: black;
+
+    z-index: 9999;
+}
+
+#calibration h1 {
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#calibration p {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.calDot {
+    position: absolute;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: rgb(226, 209, 18);
+}
+
+/* WEBGAZER SCREEN */
+
+#webgazerVideoContainer {
+    position: fixed !important;
+    top: 20px;
+    right: 20px;
+
+    width: 400px !important;
+    height: 200px !important;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+}
+
+#webgazerVideoContainer:before {
+    content: "OptiMind Focus Ensurer";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+
+    font-size: 10px;
+    color: white;
+    z-index: 10001;
+}

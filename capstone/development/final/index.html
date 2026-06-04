@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>OptiMind</title>
+
+    <!-- Normalize CSS for browser compatability -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- libraries  -->
+    <!-- web gazer -->
+    <script src="https://cdn.jsdelivr.net/npm/webgazer@2.1.1/dist/webgazer.min.js"></script>
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- SIGN IN -->
+    <section id="signIn" class="showing">
+        <h1>SIGN IN</h1>
+
+        <label for="name"></label>
+        <input type="text" id="name" placeholder="name" required>
+
+        <button id="enterButton">ENTER</button>
+    </section>
+
+    <!-- PHRASES -->
+    <section id="phrases" class="hidden">
+
+    </section>
+
+    <!-- LOADING -->
+    <section id="loading" class="hidden">
+        <h1>Welcome to OptiMind Learning System</h1>
+        <!-- <p>OptiMind Learning works to...</p> -->
+
+        <!-- loading bar -->
+    </section>
+
+    <!-- SIDE BAR -->
+    <section id="sideBar" class="hidden">
+        <div class="triangles">
+            <img src="images/capstone_triangle.png">
+            <img src="images/capstone_triangle.png">
+            <img src="images/capstone_triangle.png">
+            <img src="images/capstone_triangle.png">
+            <img src="images/capstone_triangle.png">
+        </div>
+    </section>
+
+    <!-- MAIN PAGE -->
+    <section id="mainPage" class="hidden">
+        <h1>Good Morning Ava!</h1>
+        <p>here are today's tasks</p>
+        <ul>
+            <li>Grammar Section 2</li>
+            <li>Geometry Chapter 2</li>
+            <li>Art</li>
+        </ul>
+        <button id="beginButton">begin</button>
+    </section>
+
+    <!-- CALIBRATION  -->
+    <section id="calibration" class="hidden">
+
+        <h1>CALIBRATING</h1>
+        <p>click each dot</p>
+        <p>webgazer will help make sure you stay focused</p>
+
+        <button class="calDot" style="top:10%; left:10%;"></button>
+        <!-- <button class="calDot" style="top:40%; left:50%;"></button> -->
+        <button class="calDot" style="top:10%; left:80%;"></button>
+
+        <button class="calDot" style="top:50%; left:10%;"></button>
+        <button class="calDot" style="top:50%; left:50%;"></button>
+        <button class="calDot" style="top:50%; left:80%;"></button>
+
+        <button class="calDot" style="top:80%; left:10%;"></button>
+        <button class="calDot" style="top:80%; left:50%;"></button>
+        <button class="calDot" style="top:80%; left:80%;"></button>
+
+    </section>
+
+    <!-- TASK PAGE -->
+    <section id="task" class="hidden">
+        <article>
+            <h1> Grammar Section 2: Adjectives</h1>
+            <h3>Read through the text and click on any <i>adjectives</i> to highlight them. </h3>
+            <hr>
+            <h2>Early 21st Century Education</h2>
+            <p class="blurb">(Vol. II: Childhood Cultures of the 2008), 2189 Edition</p>
+            <p> In examining <span class="adj">elementary</span> education practices of the year 2008, historians frequently note the <span class="adj">strong</span>
+                emphasis on <span class="adj">physical</span> engagement with learning materials and environments. Unlike later <span class="adj">digitized</span>
+                schooling systems, teachers utilized <span class="adj">physical</span> materials such as paper worksheets, <span class="adj">printed</span> books, and
+                <span class="adj">hands-on</span> classroom activities that shaped both academic and creative development.</p>
+
+            <p>Homework, for instance, was commonly completed in <span class="adj">handwritten</span> form. Students used <span class="adj">lined</span> paper and
+                pencils, often erasing and rewriting entire sections as ideas developed. Essays were composed slowly,
+                line by line, sometimes drafted in <span class="adj">composition</span> notebooks before being recopied as final versions. A <span class="adj">former</span> student
+                later reflected:</p>
+
+            <p>“Writing essays took forever. You’d cross things out, start again, and sometimes your hand would just get
+                tired. But when you finished it, it felt like you actually made something.”
+            </p>
+
+            <p>Classrooms in this period placed significant value on art and <span class="adj">tactile</span> learning. In art class, students
+                worked with <span class="adj">beautiful</span> paints, <span class="adj">colored</span> pencils, construction paper, and occasionally clay. Ceramics units, where
+                available, were especially memorable, students shaping bowls or <span class="adj">small</span> figures with their hands, later
+                firing them in kiln rooms maintained by the school.
+            </p>
+            <p>“Ceramics was the best part. Your hands got messy, and nothing looked perfect, but it was yours. My
+                parents and I have treasured all the pieces I made in 4th grade.”
+
+            </p>
+
+            <p>
+                Across these accounts, what stands out is not a sense of technological absence, but rather the normalcy of <span class="adj">physical</span> engagement. Learning, creating, and playing were of utmost importance. Paper, clay, paint, grass, and sunlight formed the <span class="adj">material</span> vocabulary of everyday <span class="adj">childhood</span> education, shaping a rhythm of school life that was immediate, hands-on, and distinctly grounded in the <span class="adj">physical</span> world.
+            </p> 
+            <button id="endButton">End task</button>
+        </article>
+        <!-- </article> -->
+    </section>
+
+    <!-- AD  -->
+     <img 
+
+    <!-- NATURE BREAK -->
+
+    <section id="outdoorsBreak" class="hidden">
+
+        <img src="images/capstone_outdoors.png">
+
+        <div id="timerContainer">
+            <div id="timerBar"></div>
+        </div>
+
+    </section>
+
+    <section id="outro" class="hidden">
+        <!-- video -->
+    </section>
+
+    <!-- FOCUS WARNING web gazer  -->
+
+    <section id="focusWarning" class="hidden">
+        <h1>focus warning</h1>
+    </section>
+
+    <!-- COMPREHENSION -->
+
+    <section id="comprehension" class="hidden">
+
+    <h2>Comprehension Check</h2>
+
+    <div id="questionContainer">
+        <p id="questionText"></p>
+
+        <div class="likertScale">
+            <button class="scaleBtn" data-value="1">1</button>
+            <button class="scaleBtn" data-value="2">2</button>
+            <button class="scaleBtn" data-value="3">3</button>
+            <button class="scaleBtn" data-value="4">4</button>
+            <button class="scaleBtn" data-value="5">5</button>
+        </div>
+
+        <div class="scaleLabels">
+            <span>Strongly Disagree</span>
+            <span>Strongly Agree</span>
+        </div>
+    </div>
+
+</section>
+
+</body>
+
+</html>

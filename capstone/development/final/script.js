@@ -94,7 +94,7 @@
         calibration.classList.remove('hidden');
         calibration.classList.add('showing');
 
-        webgazer.params.facemeshDepsPath = 'https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh';
+        webgazer.params.facemeshDepsPath = './mediapipe/face_mesh';
 
     });
 

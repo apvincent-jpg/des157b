@@ -136,23 +136,24 @@
     //         .begin();
     // }
 
-     async function startWebGazer() {
-                    await webgazer.setGazeListener(function (data) {
-                        if (!data) return;
-                        console.log('gaze data received:', data);
-                        console.log('gaze data received:', data);
+    async function startWebGazer() {
+        console.log('startWebGazer started');
 
-                        const lookingAtScreen =
-                            data.x > 0 && data.y > 0 &&
-                            data.x < window.innerWidth &&
-                            data.y < window.innerHeight;
+        await webgazer.setGazeListener(function (data) {
+            console.log('gaze callback fired, data:', data);   // <-- ABOVE the guard
+            if (!data) return;
 
-                        focusWarning.classList.toggle('showing', !lookingAtScreen);
-                    }).begin();
+            const lookingAtScreen =
+                data.x > 0 && data.y > 0 &&
+                data.x < window.innerWidth &&
+                data.y < window.innerHeight;
 
-                    webgazer.showVideoPreview(true);
-                    webgazer.showPredictionPoints(false);
-                }
+            focusWarning.classList.toggle('showing', !lookingAtScreen);
+        }).begin();
+
+        webgazer.showVideoPreview(true);
+        webgazer.showPredictionPoints(false);
+    }
 
     // CALIBRATION 
     calDots.forEach(function (dot) {

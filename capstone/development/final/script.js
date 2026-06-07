@@ -96,6 +96,8 @@
 
         webgazer.params.facemeshDepsPath = './mediapipe/face_mesh';
 
+        await startWebGazer();  
+        console.log('WebGazer should be started by now');
     });
 
     // START WEBGAZER

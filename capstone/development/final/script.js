@@ -111,6 +111,9 @@
             console.log('setGazeListener started')
             if (!data) return;
 
+            console.log('gaze data received:', data);
+            console.log('window dimensions:', window.innerWidth, window.innerHeight);
+
             const lookingAtScreen =
                 data.x > 0 &&
                 data.y > 0 &&
@@ -162,9 +165,16 @@
                 task.classList.remove('hidden');
                 task.classList.add('showing');
 
-                setTimeout(function () {
-                    startWebGazer();
-                }, 10);
+                async function startWebGazer() {
+                    await webgazer.setGazeListener(function (data) {
+                        if (!data) return;
+                        console.log('gaze data received:', data);
+                        // ...
+                    }).begin();
+
+                    webgazer.showVideoPreview(true);
+                    webgazer.showPredictionPoints(false);
+                }
             }
 
         });

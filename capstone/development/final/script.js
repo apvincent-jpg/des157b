@@ -143,7 +143,6 @@
 
         await webgazer.setRegression('ridge')
             .setGazeListener(function (data) {
-                console.log('gaze callback fired, data:', data);
                 if (!data) return;
 
                 const lookingAtScreen =
@@ -155,10 +154,9 @@
             })
             .begin();
 
-        webgazer.showVideoPreview(true);
-        webgazer.showPredictionPoints(true);   // turn ON temporarily so you can SEE the dot
+        webgazer.showVideoPreview(false);       // hidden during calibration
+        webgazer.showPredictionPoints(false);   // dot hidden during calibration
 
-        // wait for the video feed to actually have frames
         const video = document.getElementById('webgazerVideoFeed');
         if (video) {
             await new Promise(resolve => {
@@ -198,7 +196,8 @@
                 task.classList.remove('hidden');
                 task.classList.add('showing');
 
-                setTimeout(startWebGazer, 100);
+                // show the gaze dot now that calibration is done
+                webgazer.showPredictionPoints(true);
 
             }
 

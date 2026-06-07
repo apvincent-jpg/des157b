@@ -165,11 +165,20 @@
                 task.classList.remove('hidden');
                 task.classList.add('showing');
 
+                setTimeout(startWebGazer, 100);
+
                 async function startWebGazer() {
                     await webgazer.setGazeListener(function (data) {
                         if (!data) return;
                         console.log('gaze data received:', data);
-                        // ...
+                        console.log('gaze data received:', data);
+
+                        const lookingAtScreen =
+                            data.x > 0 && data.y > 0 &&
+                            data.x < window.innerWidth &&
+                            data.y < window.innerHeight;
+
+                        focusWarning.classList.toggle('showing', !lookingAtScreen);
                     }).begin();
 
                     webgazer.showVideoPreview(true);

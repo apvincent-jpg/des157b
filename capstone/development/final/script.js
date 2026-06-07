@@ -12,7 +12,6 @@
     const nameInput = document.querySelector('#name');
 
     const greeting = document.querySelector('#mainPage h1');
-
     const mainParagraph = document.querySelector('#mainPage p');
     const taskList = document.querySelector('#mainPage ul');
 
@@ -24,17 +23,27 @@
     const endButton = document.querySelector('#endButton');
     const comprehension = document.querySelector('#comprehension');
 
-    // for webgazer
+    // webgazer elements
     const focusWarning = document.querySelector('#focusWarning');
     const calibration = document.querySelector('#calibration');
     const calDots = document.querySelectorAll('.calDot');
 
     let calibrationClicks = 0;
-    let focusTimer = null;
 
-    console.log(calibration);
-    console.log(calDots);
-    console.log(beginButton);
+    // ---- helpers to hide/show WebGazer's video overlay ----
+    // WebGazer injects #webgazerVideoContainer when .begin() runs.
+    // We keep it hidden via CSS until calibration is complete.
+    function hideGazeOverlay() {
+        const container = document.getElementById('webgazerVideoContainer');
+        if (container) container.style.display = 'none';
+    }
+
+    function showGazeOverlay() {
+        const container = document.getElementById('webgazerVideoContainer');
+        if (container) container.style.display = 'block';
+        webgazer.showVideoPreview(true);
+        webgazer.showPredictionPoints(true);
+    }
 
     // ENTER BUTTON
     enterButton.addEventListener('click', function () {
@@ -83,8 +92,8 @@
 
     });
 
-    // BEGIN BUTTON
-    beginButton.addEventListener('click', function () {
+    // BEGIN BUTTON - start WebGazer BEFORE calibration so dot clicks train the model
+    beginButton.addEventListener('click', async function () {
 
         console.log('begin clicked');
 
@@ -96,44 +105,48 @@
 
         webgazer.params.facemeshDepsPath = './mediapipe/face_mesh';
 
+        await startWebGazer();
+        console.log('WebGazer started');
     });
 
     // START WEBGAZER
-    let focusTimeout = null;
-    let warningTimeout = null;
+    async function startWebGazer() {
+        console.log('startWebGazer started');
 
-    // .begin();
+        await webgazer.setRegression('ridge')
+            .setGazeListener(function (data) {
+                if (!data) return;
 
+                const lookingAtScreen =
+                    data.x > 0 && data.y > 0 &&
+                    data.x < window.innerWidth &&
+                    data.y < window.innerHeight;
 
-    function startWebGazer() {
-        console.log('startWebGazer started')
-        webgazer.setGazeListener(function (data) {
-            console.log('setGazeListener started')
-            if (!data) return;
-
-            const lookingAtScreen =
-                data.x > 0 &&
-                data.y > 0 &&
-                data.x < window.innerWidth &&
-                data.y < window.innerHeight;
-
-            if (!lookingAtScreen) {
-                console.log('not looking at screen');
-                focusWarning.classList.add('showing');
-            } else {
-                console.log('looking at screen');
-                focusWarning.classList.remove('showing');
-            }
-
-            webgazer.showVideoPreview(true);
-            webgazer.showPredictionPoints(false);
-
-        })
-
+                focusWarning.classList.toggle('showing', !lookingAtScreen);
+            })
             .begin();
+
+        // Hide everything during calibration. We hide the whole container at the
+        // CSS level so WebGazer's default preview can't flash on screen.
+        webgazer.showVideoPreview(false);
+        webgazer.showPredictionPoints(false);
+        hideGazeOverlay();
+
+        // Wait until the camera is actually delivering frames before relying on it.
+        const video = document.getElementById('webgazerVideoFeed');
+        if (video) {
+            await new Promise(resolve => {
+                if (video.videoWidth > 0) return resolve();
+                video.addEventListener('loadeddata', resolve, { once: true });
+            });
+            console.log('video ready:', video.videoWidth, video.videoHeight);
+        }
+
+        // Re-hide in case WebGazer re-showed the container after frames arrived.
+        hideGazeOverlay();
     }
 
-    // CALIBRATION 
+    // CALIBRATION - each click trains the model at that screen position
     calDots.forEach(function (dot) {
 
         dot.addEventListener('click', function () {
@@ -162,9 +175,8 @@
                 task.classList.remove('hidden');
                 task.classList.add('showing');
 
-                setTimeout(function () {
-                    startWebGazer();
-                }, 10);
+                // Now reveal the video preview + gaze dot on the task page.
+                showGazeOverlay();
             }
 
         });
@@ -180,9 +192,7 @@
         });
     });
 
-
-    //END BUTTON
-
+    // END BUTTON
     endButton.addEventListener('click', function () {
 
         task.classList.remove('showing');
@@ -194,13 +204,12 @@
         currentQuestion = 0;
         showQuestion();
 
-        webgazer.end(); 
-        
-        sideBar.classList.remove('showing'); 
-        sideBar.classList.add('hidden'); 
+        webgazer.end();
+        hideGazeOverlay();
 
+        sideBar.classList.remove('showing');
+        sideBar.classList.add('hidden');
     });
-
 
     // COMPREHENSION
     const article = document.querySelector('#task article');
@@ -224,8 +233,7 @@
         if (currentQuestion < questions.length) {
             questionText.textContent = questions[currentQuestion];
         } else {
-
-            questionText.textContent = "completw questions";
+            questionText.textContent = "Survey complete. Thank you!";
 
             document.querySelector('.likertScale').style.display = 'none';
             document.querySelector('.scaleLabels').style.display = 'none';
@@ -249,7 +257,5 @@
         });
 
     });
-
-
 
 })();

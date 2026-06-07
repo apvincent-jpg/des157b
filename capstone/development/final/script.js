@@ -139,20 +139,32 @@
     async function startWebGazer() {
         console.log('startWebGazer started');
 
-        await webgazer.setGazeListener(function (data) {
-            console.log('gaze callback fired, data:', data);   // <-- ABOVE the guard
-            if (!data) return;
+        await webgazer.setRegression('ridge')
+            .setGazeListener(function (data) {
+                console.log('gaze callback fired, data:', data);
+                if (!data) return;
 
-            const lookingAtScreen =
-                data.x > 0 && data.y > 0 &&
-                data.x < window.innerWidth &&
-                data.y < window.innerHeight;
+                const lookingAtScreen =
+                    data.x > 0 && data.y > 0 &&
+                    data.x < window.innerWidth &&
+                    data.y < window.innerHeight;
 
-            focusWarning.classList.toggle('showing', !lookingAtScreen);
-        }).begin();
+                focusWarning.classList.toggle('showing', !lookingAtScreen);
+            })
+            .begin();
 
         webgazer.showVideoPreview(true);
-        webgazer.showPredictionPoints(false);
+        webgazer.showPredictionPoints(true);   // turn ON temporarily so you can SEE the dot
+
+        // wait for the video feed to actually have frames
+        const video = document.getElementById('webgazerVideoFeed');
+        if (video) {
+            await new Promise(resolve => {
+                if (video.videoWidth > 0) return resolve();
+                video.addEventListener('loadeddata', resolve, { once: true });
+            });
+            console.log('video ready:', video.videoWidth, video.videoHeight);
+        }
     }
 
     // CALIBRATION 

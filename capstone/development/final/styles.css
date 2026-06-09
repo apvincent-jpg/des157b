@@ -564,6 +564,7 @@ input {
 #endButton {
     display: block;
     margin: 20px auto;
+    padding: 20px;
     width: 180px;
     height: 60px;
     border: none;
